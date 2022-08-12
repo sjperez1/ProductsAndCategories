@@ -1,0 +1,22 @@
+@model List<Product>
+
+<h1>Products | <a href="/categories">Categories</a></h1>
+
+<div>
+    <h2>New Product</h2>
+    @* You can use a partial that requires a different ViewModel by creating an instance of that model and passing it into your partial under the tag model="" *@
+
+@{
+    Product newProduct = new Product();
+}
+<partial name="_ProductForm" model="newProduct"></partial>
+</div>
+<div>
+    <h2>Existing Products</h2>
+    @foreach(Product product in Model)
+    {
+        <li>
+            <a href="/products/@product.ProductId">@product.Name</a>
+        </li>
+    }
+</div>

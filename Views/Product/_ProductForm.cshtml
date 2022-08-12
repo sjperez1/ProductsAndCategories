@@ -1,0 +1,22 @@
+@model Product
+
+<form asp-action="CreateProduct" asp-controller="Product" method="post">
+        <span asp-validation-for="Name"></span>
+        <div class="formline mb-3">
+            <label asp-for="Name"></label>
+            <input class="form-control-sm" asp-for="Name">
+        </div>
+        <span asp-validation-for="Description"></span>
+        <div>
+            <label asp-for="Description"></label>
+            <div>
+                <textarea asp-for="Description" cols="45" rows="8"></textarea>
+            </div>
+        </div>
+        <span asp-validation-for="Price"></span>
+        <div class="formline mb-3">
+            <label asp-for="Price"></label>
+            <input class="form-control-sm" asp-for="Price">
+        </div>
+        <button class="btn btn-outline-dark" type="submit">Create</button>
+    </form>

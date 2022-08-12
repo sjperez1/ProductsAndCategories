@@ -1,0 +1,22 @@
+@model Association
+
+<h1>@ViewBag.Cat.Name</h1>
+<form asp-action="CreateCategoryWithProducts" asp-controller="Category" method="post" asp-route-CategoryId="@ViewBag.Cat.CategoryId">
+        <div class="formline mb-3">
+            <label asp-for="ProductId"></label>
+            <span asp-validation-for="ProductId"></span>
+            <select asp-for="ProductId" class="form-control-sm">
+                @foreach(Product product in ViewBag.ProductsWithoutThisCategory)
+                {
+                    <option value="@product.ProductId">@product.Name</option>
+                }
+            </select>
+        </div>
+        <button class="btn btn-outline-dark" type="submit">Add</button>
+    </form>
+
+<h3>Products:</h3>
+@foreach(Association assoc in ViewBag.Cat.Prods)
+            {
+                <p>@assoc.Product.Name</p>
+            }
