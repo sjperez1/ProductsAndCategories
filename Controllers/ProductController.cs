@@ -15,7 +15,7 @@ public class ProductController : Controller
         _context = context;
     }
 
-    [HttpGet("products")]
+    [HttpGet("")]
     public IActionResult ProductDisplay()
     {
         List<Product> AllProducts = _context.Products.ToList();

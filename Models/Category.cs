@@ -5,13 +5,14 @@ namespace ProductsAndCategories.Models;
 public class Category
 {
     [Key]
-    public int CategoryId {get; set;}
+    public int CategoryId {get;set;}
 
     [Required(ErrorMessage = "Name is required")]
     public string Name {get; set;}
 
-    public DateTime CreatedAt {get; set;} = DateTime.Now;
-    public DateTime UpdatedAt {get; set;} = DateTime.Now;
+    public DateTime CreatedAt {get;set;} = DateTime.Now;
+    public DateTime UpdatedAt {get;set;} = DateTime.Now;
 
+    // possibly rename to categoryproducts
     public List<Association> Prods {get;set;} = new List<Association>();
 }
